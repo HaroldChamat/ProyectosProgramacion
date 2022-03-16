@@ -1,0 +1,36 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace punto_2
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int edad, pulsaciones, sexo;
+            Console.Write("Ingresa el valor de edad: ");
+            edad = int.Parse(Console.ReadLine());
+            Console.WriteLine("Selecciona el valor de sexo.");
+            Console.WriteLine("1.- femenino");
+            Console.WriteLine("2.- masculino");
+            Console.Write("porfavor ingrese el numero 1 o 2 acontinuacion: ");
+            do
+            {
+                sexo = int.Parse(Console.ReadLine());
+                if (sexo < 1 || sexo > 2)
+                    Console.Write("Porfavor selecionar uno de los numeros anteriormente mencionados.: ");
+            } while (sexo < 1 || sexo > 2);
+            if (sexo == 1)
+                pulsaciones = (220 - edad) / 10;
+            else
+                pulsaciones = (210 - edad) / 10;
+            Console.WriteLine("Valor de pulsaciones: " + pulsaciones);
+            Console.WriteLine();
+            Console.Write("Presiona una tecla para terminar . . . ");
+            Console.ReadKey();
+        }
+    }
+}
