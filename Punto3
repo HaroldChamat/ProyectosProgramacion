@@ -1,0 +1,127 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace punto3
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string Nom, cuenta;
+            int op = 0;
+
+
+            int SaldoInicial = 10000;
+            
+            
+            int Consignacion = 0;
+            
+            
+            int Retiro = 0;
+            
+
+           
+           
+            Console.Clear();
+            
+            Console.WriteLine("||||||||||||||||||||||||||||||||||||||||||");
+
+            Console.WriteLine("|||||  Bienvenido a el banco Revers  |||||");
+            
+            Console.WriteLine("||||||||||||||||||||||||||||||||||||||||||");
+            
+            Console.WriteLine();
+
+            Console.WriteLine("Porfavor ingrese el nombre del titular de la cuenta:");
+
+            Nom = Console.ReadLine();
+
+            Console.WriteLine();
+
+            Console.WriteLine("Porfavor introduzca el numero de la nueva cuenta:");
+            
+            cuenta = Console.ReadLine();
+            
+            do
+            {
+                Console.WriteLine();
+                Console.WriteLine("||||||||||||||||||||||||||||||||||||||||||");
+                Console.WriteLine("Hola {0} que es lo que realizar?: ", Nom, cuenta);
+                Console.WriteLine("||||||||||||||||||||||||||||||||||||||||||");
+                Console.WriteLine();
+                Console.WriteLine("\t 1.Consignar");
+                Console.WriteLine("\t 2.Retirar");
+                Console.WriteLine("\t 3.Consultar saldo");
+                Console.WriteLine("\t 4.SALIR");
+
+
+                op = Convert.ToByte(Console.ReadLine());
+
+                switch (op)
+                {
+                    case 1:
+                        Console.Clear();
+
+                        Console.WriteLine("cuanto dinero desea consignar?");
+                        
+                        Consignacion = Convert.ToInt32(Console.ReadLine());
+
+                        if (Consignacion <= 0)
+                        {
+                            Console.WriteLine();
+                            Console.WriteLine("Digitar una cifra valida, por favor vuelva a intentarlo");
+                        }
+                        else
+                        {
+                            SaldoInicial = SaldoInicial + Consignacion;
+
+                            Console.WriteLine("Saldo consignado correctamente");
+                        }
+
+
+                        break;
+
+                    case 2:
+                        Console.Clear();
+                        Console.WriteLine("cuanto dinero desea retirar?");
+                        Retiro = Convert.ToInt32(Console.ReadLine());
+
+                        if (Retiro <= 0)
+                        {
+                            Console.WriteLine();
+                            Console.WriteLine("Digitar una cifra valida, por favor vuelva a intentarlo");
+                        }
+                        else if (SaldoInicial < Retiro)
+                        {
+                            Console.WriteLine("Dinero insuficiente, por favor digite un valor menor o igual al saldo disponible");
+                        }
+                        else
+                        {
+                            SaldoInicial = SaldoInicial - Retiro;
+                            Console.WriteLine("Saldo retirado correctamente");
+                        }
+                        break;
+
+                    case 3:
+                        Console.Clear();
+
+                        Console.WriteLine("Su saldo actual es de {0}", SaldoInicial);
+                        break;
+                    case 4:
+
+                    default:
+
+                        break;
+
+                }
+            } while (op != 4);
+
+
+
+            Console.ReadKey();
+        }
+    }
+}
