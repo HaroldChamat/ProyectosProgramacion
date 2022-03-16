@@ -1,0 +1,42 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace punto1
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            double nota1, nota2, nota3;
+            string linea;
+            Console.Write("Ingrese primera nota:");
+            linea = Console.ReadLine();
+            nota1 = double.Parse(linea);
+            Console.Write("Ingrese segunda nota:");
+            linea = Console.ReadLine();
+            nota2 = double.Parse(linea);
+            Console.Write("Ingrese tercer nota:");
+            linea = Console.ReadLine();
+            nota3 = double.Parse(linea);
+            double promedio;
+            promedio = (nota1 + nota2 + nota3) / 3;
+            Console.Write(promedio);
+            Console.Write("");
+            if (promedio >= 3)
+            {
+                Console.Write("  Afortunadamente usted Gano  ");
+            }
+            else
+            {
+                Console.Write(" desgraciadamente usted perdio  ");
+            }
+
+
+            Console.ReadKey();
+
+        }
+    }
+}
